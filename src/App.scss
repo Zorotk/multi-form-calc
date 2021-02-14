@@ -1,0 +1,27 @@
+@import "./assets/scss/_vars.scss";
+
+.layout-container {
+  min-height: 100vh;
+}
+
+
+.tab-container {
+  font-size: 15px;
+  height: 80%;
+}
+
+
+.main-container {
+  min-height: 84vh;
+}
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: #ededed;
+  padding: 5px 0 5px 0;
+
+
+}
