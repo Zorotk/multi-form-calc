@@ -2,9 +2,10 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData} from "../redux/reducer";
 
+
 const Results = () => {
     const {fetchResult, results, step1, step2 = 1, step3, step4} = useSelector(({film}) => film);
-    console.log(results)
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchData(
@@ -13,9 +14,10 @@ const Results = () => {
 
     return (
         <div>
-            <h2 style={{textAlign: 'center'}}>{fetchResult === 'error' ? 'Ошибка' : 'Успешно'}</h2>
+            <h2 className={'header'}>{fetchResult === 'error' ? 'Ошибка' : 'Успешно'}</h2>
             {results}
         </div>
+
     );
 };
 

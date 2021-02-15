@@ -1,9 +1,10 @@
 import React from 'react';
-import '../test.scss'
+import '../Components/test/test.scss'
 
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 import {setCurrentStep, setStep1} from "../redux/reducer";
+
 
 const Step1 = () => {
     const dispatch = useDispatch();

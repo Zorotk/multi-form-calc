@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrentStep, setStep1, setStep3} from "../redux/reducer";
+import {setCurrentStep, setStep3} from "../redux/reducer";
 
 const Step3 = () => {
     const dispatch = useDispatch();
