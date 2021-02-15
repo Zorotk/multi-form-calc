@@ -3,102 +3,76 @@ import axios from "axios";
 
 
 const initialState = {
-    requiredForm2: true,
+    requiredForm4: false,
+    requiredForm2: false,
     currentStep: 1,
+    step1: '',
     step2: '',
+    step3: '',
+    step4: {width: '', height: ''},
     loading: true,
-    modalActive: false,
     results: [],
-    films: [],
-    showDescription: false,
-    filmsComments: [],
-    login: '',
-    password: '',
-    search: '',
-    auth: false
+    fetchResult:''
 }
 
 const server = process.env.REACT_APP_API_URL;
 
 export const fetchData = createAsyncThunk("fetchData",
+
     async (url, {dispatch}) => {
-        const {data} = await axios(server + url)
-        dispatch(toolkitSlice.actions.setResults(data.message))
+        try {
+            const {data} = await axios(server + url)
+            dispatch(toolkitSlice.actions.setResults(data.message))
+            dispatch(toolkitSlice.actions.fetchResult(data.result))
+        } catch (e) {
+            console.log(e)
+        }
     }
 );
-// export const fetchComments = createAsyncThunk("getComments",
-//     async (url, {dispatch}) => {
-//         const {data} = await axios(`${server}comments`)
-//         dispatch(toolkitSlice.actions.setComments(data))
-//         dispatch(toolkitSlice.actions.setLoading(false))
-//     }
-// );
-//
-// export const fetchDeletedComment = createAsyncThunk("fetchDeletedComment",
-//     async (id, {dispatch}) => {
-//         await axios.delete(`${server}comments/${id}`)
-//         dispatch(toolkitSlice.actions.deleteComments(id))
-//     }
-// );
-//
-// export const addComment = createAsyncThunk("addComment",
-//     async (comment, {dispatch}) => {
-//         const {data} = await axios.post(`${server}comments`, comment)
-//         dispatch(toolkitSlice.actions.addComments(data))
-//     }
-// );
 
 
 const toolkitSlice = createSlice({
     name: 'film', initialState
     , reducers: {
-        requiredForm(state, {payload}) {
+        fetchResult(state, {payload}) {
+            state.fetchResult = payload
+        },
+        requiredForm2(state, {payload}) {
             state.requiredForm2 = payload
         },
-        setStep(state, {payload}) {
+        setRequiredForm4(state, {payload}) {
+            state.requiredForm4 = payload
+        },
+        setCurrentStep(state, {payload}) {
             state.currentStep = payload
+        },
+        setStep1(state, {payload}) {
+            state.step1 = payload
         },
         setStep2(state, {payload}) {
             state.step2 = payload
         },
-        // setmodalActive(state, {payload}) {
-        //     state.modalActive = payload
-        // },
-        // setResults(state, action) {
-        //     state.results = action.payload
-        // },
-        // setFilms(state, action) {
-        //     state.films = action.payload
-        // },
-        // toggleDescription(state, {payload}) {
-        //     state.showDescription = payload
-        // },
-        // addComments(state, {payload}) {
-        //     state.filmsComments.unshift(payload)
-        // },
-        // deleteComments(state, {payload}) {
-        //     state.filmsComments = state.filmsComments.filter(el => el.id !== payload)
-        // },
-        // setComments(state, {payload}) {
-        //     state.filmsComments = payload.reverse()
-        // },
-        // setLogin(state, action) {
-        //     state.login = action.payload
-        // },
-        // setSearch(state, action) {
-        //     state.search = action.payload
-        // },
-        // setPassword(state, {payload}) {
-        //     state.password = payload
-        // },
-        // setLoading(state, {payload}) {
-        //     state.loading = payload
-        // },
-        // setAuth(state, {payload}) {
-        //     state.auth = payload
-        // }
+        setStep3(state, {payload}) {
+            state.step3 = payload
+        },
+        setStep4(state, {payload}) {
+            state.step4 = payload
+        },
+        setResults(state, action) {
+            state.results = action.payload
+        },
+        setDefault(state) {
+            state.requiredForm4 = false
+            state.requiredForm2 = false
+            state.currentStep = 1
+            state.step1 = ''
+            state.step2 = ''
+            state.step3 = ''
+            state.step4 = {width: '', height: ''}
+        }
+
     }
 })
 
 export default toolkitSlice.reducer
-export const {setStep2, requiredForm, setStep, setAuth, setSearch, setmodalActive, setLogin, setPassword, toggleDescription} = toolkitSlice.actions
+export const {setDefault, setStep4, setStep3, setStep2, setStep1, requiredForm2, setRequiredForm4, setCurrentStep} = toolkitSlice.actions
