@@ -3,8 +3,6 @@ import axios from "axios";
 
 
 const initialState = {
-    requiredForm4: false,
-    requiredForm2: false,
     currentStep: 1,
     step1: '',
     step2: '',
@@ -12,7 +10,7 @@ const initialState = {
     step4: {width: '', height: ''},
     loading: true,
     results: [],
-    fetchResult:''
+    fetchResult: ''
 }
 
 const server = process.env.REACT_APP_API_URL;
@@ -37,12 +35,6 @@ const toolkitSlice = createSlice({
         fetchResult(state, {payload}) {
             state.fetchResult = payload
         },
-        requiredForm2(state, {payload}) {
-            state.requiredForm2 = payload
-        },
-        setRequiredForm4(state, {payload}) {
-            state.requiredForm4 = payload
-        },
         setCurrentStep(state, {payload}) {
             state.currentStep = payload
         },
@@ -62,17 +54,14 @@ const toolkitSlice = createSlice({
             state.results = action.payload
         },
         setDefault(state) {
-            state.requiredForm4 = false
-            state.requiredForm2 = false
             state.currentStep = 1
             state.step1 = ''
             state.step2 = ''
             state.step3 = ''
             state.step4 = {width: '', height: ''}
         }
-
     }
 })
 
 export default toolkitSlice.reducer
-export const {setDefault, setStep4, setStep3, setStep2, setStep1, requiredForm2, setRequiredForm4, setCurrentStep} = toolkitSlice.actions
+export const {setDefault, setStep4, setStep3, setStep2, setStep1, setCurrentStep} = toolkitSlice.actions

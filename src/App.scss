@@ -10,18 +10,13 @@
   height: 80%;
 }
 
-
 .main-container {
   min-height: 84vh;
 }
-.header{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+
+.header {
   text-align: center;
   background: #ededed;
   padding: 5px 0 5px 0;
-
-
+  border: 1px solid black;
 }

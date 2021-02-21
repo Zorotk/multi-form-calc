@@ -1,49 +1,51 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
-import {setRequiredForm4, setStep4} from "../redux/reducer";
+import {setCurrentStep, setStep4} from "../redux/reducer";
 import Animation from "../Components/Animation";
+import PanelButton from "../Components/test/panelButton";
 
 const Step4 = () => {
-    const {step4} = useSelector(({film}) => film);
-    const {register, handleSubmit} = useForm({defaultValues: {step4}});
+    const {currentStep, step4} = useSelector(({film}) => film);
+    const {register, handleSubmit, errors} = useForm({defaultValues: {step4}});
     const dispatch = useDispatch()
-    const onSubmit = data => dispatch(setStep4({width: data.width, height: data.height}));
-
+    const onSubmit = data => {
+        dispatch(setStep4({width: data.width, height: data.height}));
+        dispatch(setCurrentStep(Number(currentStep + 1)))
+        history.push('/step/5')
+    }
     const history = useHistory()
-    useEffect(() => {
-        if (step4.width !== '' && step4.height !== '') {
-            dispatch(setRequiredForm4(true))
-        }
-    }, [step4])
 
 
     return (
-        <>
+        <div>
             <h2 className={'header'}>Длина стен(в метрах):</h2>
-
             <Animation>
                 <form onSubmit={handleSubmit(onSubmit)} className={'calc-form'}>
-                    <input type="number"
-                           name={'width'}
-                           onChange={handleSubmit(onSubmit)}
-                           ref={register({
-                               required: true,
-                               minLength: 1
-                           })}
-                    />X<input type="number"
-                              name={'height'}
-                              onChange={handleSubmit(onSubmit)}
-                              ref={register({
-                                  required: true,
-                                  minLength: 1
-                              })}/>
+                    <div className={'test-body'}>
+                        <input type="number"
+                               name={'width'}
+                               placeholder={'width'}
+                               ref={register({
+                                   required: true,
+                                   minLength: 1
+                               })}/>
+                        <p>{errors.width && 'Введите значение'}</p>
+                        X<input type="number"
+                                name={'height'}
+                                placeholder={'height'}
+                                ref={register({
+                                    required: true,
+                                    minLength: 1
+                                })}/>
+                        <p>{errors.height && 'Введите значение'}</p>
+                    </div>
+                    <PanelButton/>
                 </form>
             </Animation>
-
-        </>
+        </div>
     );
 };
 

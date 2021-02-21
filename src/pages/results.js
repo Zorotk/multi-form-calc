@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData} from "../redux/reducer";
+import Animation from "../Components/Animation";
 
 
 const Results = () => {
@@ -13,10 +14,14 @@ const Results = () => {
     }, [dispatch]);
 
     return (
-        <div>
+        < Animation>
             <h2 className={'header'}>{fetchResult === 'error' ? 'Ошибка' : 'Успешно'}</h2>
-            {results}
-        </div>
+
+            <div className={'test-body'}>
+                {results}
+            </div>
+
+        </Animation>
 
     );
 };

@@ -7,30 +7,37 @@
 }
 
 .test-body {
-  position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 300px;
   min-height: 50px;
   padding: 30px;
   border: 1px solid black;
-  border-radius: 5px;
+  border-top: none;
 }
 
 .test-panel-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 .calc-form {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .calc-form > input {
   width: 100px;
   margin: 10px;
+}
+
+.test-next {
+  margin-bottom: 50px;
+  position: relative;
 }
