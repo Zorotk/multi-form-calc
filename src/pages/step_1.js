@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 import {setCurrentStep, setStep1} from "../redux/reducer";
 import Animation from "../Components/Animation";
+import PanelButton from "../Components/panelButton";
 
 
 const Step1 = () => {
@@ -20,6 +21,7 @@ const Step1 = () => {
                 <Link onClick={() => nextStep(1)} to="/step/2">Жилой дом</Link>
                 <Link onClick={() => nextStep(2)} to="/step/3">Гараж</Link>
             </div>
+            <PanelButton/>
         </Animation>
     );
 };

@@ -2,10 +2,11 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData} from "../redux/reducer";
 import Animation from "../Components/Animation";
+import PanelButton from "../Components/panelButton";
 
 
 const Results = () => {
-    const {fetchResult, results, step1, step2 = 1, step3, step4} = useSelector(({film}) => film);
+    const {fetchResult, results, step1, step2, step3, step4} = useSelector(({film}) => film);
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -14,15 +15,13 @@ const Results = () => {
     }, [dispatch]);
 
     return (
-        < Animation>
+        <Animation>
             <h2 className={'header'}>{fetchResult === 'error' ? 'Ошибка' : 'Успешно'}</h2>
-
             <div className={'test-body'}>
                 {results}
             </div>
-
+            <PanelButton/>
         </Animation>
-
     );
 };
 

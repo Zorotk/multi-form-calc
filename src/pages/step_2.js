@@ -1,11 +1,12 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
-import { setCurrentStep, setStep2} from "../redux/reducer";
+import {setCurrentStep, setStep2} from "../redux/reducer";
 import Animation from "../Components/Animation";
 import {useHistory} from "react-router-dom";
 
-import PanelButton from "../Components/test/panelButton";
+import PanelButton from "../Components/panelButton";
+
 
 const Step2 = () => {
     const dispatch = useDispatch()
@@ -19,21 +20,19 @@ const Step2 = () => {
     }
 
     return (
-        <div>
+        <Animation>
             <h2 className={'header'}>Количество этажей(число):</h2>
-            <Animation>
-                <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                    <div className={'test-body'}>
-                        <input name="name" type="number"
-                               ref={register({
-                                   required: true
-                               })}/>
-                        <p>{errors.name && 'Введите значение'}</p>
-                    </div>
-                    <PanelButton/>
-                </form>
-            </Animation>
-        </div>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                <div className={'test-body'}>
+                    <input name="name" type="number"
+                           ref={register({
+                               required: true
+                           })}/>
+                    <p>{errors.name && 'Введите значение'}</p>
+                </div>
+                <PanelButton/>
+            </form>
+        </Animation>
     );
 };
 
