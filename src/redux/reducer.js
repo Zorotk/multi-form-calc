@@ -13,7 +13,7 @@ const initialState = {
     fetchResult: ''
 }
 
-const server = process.env.REACT_APP_API_URL;
+const server = 'https://data.techart.ru/lab/json/';
 
 export const fetchData = createAsyncThunk("fetchData",
 
