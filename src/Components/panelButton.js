@@ -27,7 +27,7 @@ const PanelButton = () => {
                         ? <Button onClick={defaultStep}>Заново</Button>
                         : <>
                             <Button onClick={defaultStep}>Отмена</Button>
-                            <Button type="submit">Далее</Button>
+                            <Button type="submit">{step == 4 ? 'Расчитать' : 'Далее'}</Button>
                         </>
                     }
                     </>}

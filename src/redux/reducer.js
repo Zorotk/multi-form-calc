@@ -4,9 +4,9 @@ import axios from "axios";
 
 const initialState = {
     currentStep: 1,
-    step1: '1',
+    step1: '',
     step2: '',
-    step3: '1',
+    step3: '',
     step4: {width: '', height: ''},
     loading: true,
     results: [],
@@ -55,9 +55,9 @@ const toolkitSlice = createSlice({
         },
         setDefault(state) {
             state.currentStep = 1
-            state.step1 = '1'
+            state.step1 = ''
             state.step2 = ''
-            state.step3 = '1'
+            state.step3 = ''
             state.step4 = {width: '', height: ''}
         }
     }

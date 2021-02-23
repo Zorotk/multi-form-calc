@@ -8,6 +8,7 @@ import Results from "../../pages/results";
 import { useParams} from "react-router-dom";
 
 import React from "react";
+import StepLinks from "../StepLinks";
 
 
 const Test = () => {
@@ -20,6 +21,7 @@ const Test = () => {
     return (
         <div>
             <div className={'test'}>
+                <StepLinks/>
                 <h2>Калькулятор цены конструкции</h2>
                 <div>Шаг {currentStep}</div>
                 <Component/>

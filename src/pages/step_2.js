@@ -21,7 +21,7 @@ const Step2 = () => {
 
     return (
         <Animation>
-            <h2 className={'header'}>Количество этажей(число):</h2>
+            <h2 className={'header'}>Количество этажей:</h2>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className={'test-body'}>
                     <input name="name" type="number"
