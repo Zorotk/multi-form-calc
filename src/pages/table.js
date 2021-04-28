@@ -3,33 +3,56 @@ import './table.scss'
 import { useForm } from "react-hook-form";
 
 const Table = () => {
-
-    const obj = {
+    let arr = [{
         id: "id0",
         name: "",
         info: {
             email: "",
             adress: "",
         }
-    }
+    }, {
+        id: "id1",
+        name: "",
+        info: {
+            email: "",
+            adress: "",
+        }
+    }, {
+        id: "id2",
+        name: "",
+        info: {
+            email: "",
+            adress: "",
+        }
+    }]
+
     function test1(obj) {
         let res = ''
         for (let i in obj) {
-            if (obj[i] === 'id0') {
+            if (i === 'id') {
                 continue
             }
-            if (typeof obj[i] !== "object") {
-                res += `${i}: obj.${i}, `
-            }
+
             if (typeof obj[i] === "object") {
                 for (let j in obj[i]) {
                     res += `${j}: obj.${i}.${j}, `
                 }
             }
+            else {
+                res += `${i}: obj.${i}, `
+            }
         }
-        return res.substring(0, res.length - 2)
+        return res
     }
-    // console.log(test1(obj))
+    function test(arr) {
+        return arr.forEach(element => {
+            console.log(test1(element));
+        });
+    }
+    test(arr)
+
+
+
 
 
 
@@ -72,6 +95,7 @@ const Table = () => {
                 <div className={'grid'}
                     style={{
                         display: "grid",
+
                         gridTemplateColumns: `repeat(${7}, 100px)`,
                         boxShadow:
                             "0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)",
@@ -79,24 +103,18 @@ const Table = () => {
                 >
                     {display.map((rows, x) =>
                         rows.map((cols, y) => (
-                            <div
+                            <div className='title'
                                 key={x + y}
                                 style={{
                                     height: "100px",
                                     width: "100px",
-                                    backgroundColor:
-                                        display[x][y] === 1
-                                            ? "gold"
-                                            : "" + display[x][y] === "2"
-                                                ? "darkorchid"
-                                                : "",
-                                    textAlign: "center",
+                                    textAlign: "center"
                                 }}
                             >{cols}
                                 <button onClick={() => {
                                     changeValue(x, y);
                                 }}>Изменить</button>
-                                <button onClick={() => deleteValue(x, y)} >Удалить</button>
+                                <button onClick={() => deleteValue(x, y)}>Удалить</button>
                             </div>
                         ))
                     )}
