@@ -6,7 +6,7 @@ export const ProgressBar = ({step}) => {
 
     const [activeStep, setactiveStep] = useState(1)
     useEffect(() => {
-        setactiveStep(step)
+        setactiveStep(Number(step))
     }, [step])
 
     const steps = Array(5).fill(0).map((_, i) => i + 1)
