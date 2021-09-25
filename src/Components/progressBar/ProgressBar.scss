@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   width: 700px;
+  flex-wrap: wrap;
   max-width: 100%;
   position: relative;
   overflow: hidden;
   margin: 20px;
+  overflow-y: visible;
 }
 
 .step {
