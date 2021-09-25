@@ -26,7 +26,7 @@ const Step4 = () => {
                 <div className={'test-body'}>
                     <input type="number"
                            name={'width'}
-                           placeholder={'width'}
+                           placeholder={'ширина'}
                            ref={register({
                                required: true,
                                minLength: 1
@@ -34,7 +34,7 @@ const Step4 = () => {
                     <p>{errors.width && 'Введите значение'}</p>
                     X<input type="number"
                             name={'height'}
-                            placeholder={'height'}
+                            placeholder={'высота'}
                             ref={register({
                                 required: true,
                                 minLength: 1

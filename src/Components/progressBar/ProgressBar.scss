@@ -1,0 +1,48 @@
+.steps {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border: 5px solid #ededed;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+  transition: ease 1s;
+}
+
+.step.active {
+  border-color: blueviolet;
+}
+
+.progress {
+  position: absolute;
+  height: 4px;
+  background-color: blueviolet;
+  width: 0%;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  transition: ease .3s;
+}
+
+.steps:before {
+  content: '';
+  position: absolute;
+  height: 4px;
+  background-color: #ededed;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+}

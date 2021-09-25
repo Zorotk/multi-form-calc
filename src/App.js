@@ -8,7 +8,7 @@ import AppRoutes from "./Components/AppRoutes";
 const App = () => {
     return (
             <div className={'layout-container'}>
-                <Layout>
+            <Layout>
                     <AppRoutes/>
                 </Layout>
             </div>

@@ -10,11 +10,13 @@ import {store} from "./redux/store";
 
 import App from "./App";
 
+
 ReactDOM.render(
     <React.StrictMode>
         <Router>
             <Provider store={store}>
-                <App/>
+                <App />
+            
             </Provider>
         </Router>
     </React.StrictMode>,

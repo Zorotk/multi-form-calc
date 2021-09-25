@@ -9,6 +9,7 @@ import { useParams} from "react-router-dom";
 
 import React from "react";
 import StepLinks from "../StepLinks";
+import {ProgressBar} from "../progressBar/ProgressBar";
 
 
 const Test = () => {
@@ -21,6 +22,7 @@ const Test = () => {
     return (
         <div>
             <div className={'test'}>
+                <ProgressBar step={step}/>
                 <StepLinks/>
                 <h2>Калькулятор цены конструкции</h2>
                 <div>Шаг {currentStep}</div>
