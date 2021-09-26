@@ -25,7 +25,7 @@ const Test = () => {
                 <ProgressBar step={step}/>
                 <StepLinks/>
                 <h2>Калькулятор цены конструкции</h2>
-                <div>Шаг {currentStep}</div>
+                <div>Этап {currentStep}</div>
                 <Component/>
             </div>
         </div>

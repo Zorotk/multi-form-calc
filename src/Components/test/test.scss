@@ -18,6 +18,14 @@
   border-top: none;
 }
 
+.test-body > a {
+  padding: 5px;
+  background-color: #ededed;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
 .test-panel-button {
   display: flex;
   justify-content: center;
@@ -34,7 +42,7 @@
 
 .calc-form > input {
   width: 100px;
-  margin: 10px;
+
 }
 
 .test-next {

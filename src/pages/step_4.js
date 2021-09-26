@@ -32,7 +32,7 @@ const Step4 = () => {
                                minLength: 1
                            })}/>
                     <p>{errors.width && 'Введите значение'}</p>
-                    X<input type="number"
+                    <input type="number"
                             name={'height'}
                             placeholder={'высота'}
                             ref={register({

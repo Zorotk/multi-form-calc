@@ -46,17 +46,9 @@ export default function StepLinks() {
                     Шаг 4<span/>
                 </a>
             )}
-
-
-            {isStep1 && isStep2 && isStep3 && isStep4 ? (
-                <NavLink to="/step/5" style={{float: 'right'}}>
-                    Шаг 5 <span/>
-                </NavLink>
-            ) : (
                 <a style={{float: 'right'}}>
                     Результат <span/>
                 </a>
-            )}
         </div>
     );
 }
